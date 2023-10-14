@@ -1,9 +1,9 @@
 mod dump;
 mod facts;
 mod intern;
+mod mir_parser;
 mod program;
 mod tab_delim;
-mod mir_parser;
 mod test;
 mod test_util;
 
