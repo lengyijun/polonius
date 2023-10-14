@@ -20,6 +20,7 @@ mod initialization;
 mod liveness;
 mod location_insensitive;
 mod naive;
+mod nll;
 
 #[derive(Debug, Clone, Copy)]
 pub enum Algorithm {
@@ -40,6 +41,8 @@ pub enum Algorithm {
     /// Combination of the fast `LocationInsensitive` pre-pass, followed by
     /// the more expensive `DatafrogOpt` variant.
     Hybrid,
+
+    NLL,
 }
 
 impl Algorithm {
@@ -66,6 +69,7 @@ impl ::std::str::FromStr for Algorithm {
             "locationinsensitive" => Ok(Algorithm::LocationInsensitive),
             "compare" => Ok(Algorithm::Compare),
             "hybrid" => Ok(Algorithm::Hybrid),
+            "nll" => Ok(Algorithm::NLL),
             _ => Err(String::from(
                 "valid values: Naive, DatafrogOpt, LocationInsensitive, Compare, Hybrid",
             )),
@@ -285,6 +289,22 @@ impl<T: FactTypes> Output<T> {
             Algorithm::LocationInsensitive => {
                 let (potential_errors, potential_subset_errors) =
                     location_insensitive::compute(&ctx, &mut result);
+
+                // Note: the error location is meaningless for a location-insensitive
+                // subset error analysis. This is acceptable here as this variant is not one
+                // which should be used directly besides debugging, the `Hybrid` variant will
+                // take advantage of its result.
+                let potential_subset_errors: Relation<(T::Origin, T::Origin, T::Point)> =
+                    Relation::from_iter(
+                        potential_subset_errors
+                            .into_iter()
+                            .map(|&(origin1, origin2)| (origin1, origin2, 0.into())),
+                    );
+
+                (potential_errors, potential_subset_errors)
+            }
+            Algorithm::NLL => {
+                let (potential_errors, potential_subset_errors) = nll::compute(&ctx, &mut result);
 
                 // Note: the error location is meaningless for a location-insensitive
                 // subset error analysis. This is acceptable here as this variant is not one
