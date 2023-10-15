@@ -1,0 +1,124 @@
+// MIR for `sara2` 0 nll
+
+| Free Region Mapping
+| '?0 | Global | ['?0, '?1]
+| '?1 | Local | ['?1]
+|
+| Inferred Region Values
+| '?0 | U0 | {bb0[0..=29], '?0, '?1}
+| '?1 | U0 | {bb0[0..=29], '?1}
+| '?2 | U0 | {bb0[2..=23]}
+| '?3 | U0 | {}
+| '?4 | U0 | {bb0[2..=23]}
+| '?5 | U0 | {bb0[2..=23]}
+| '?6 | U0 | {bb0[3..=23]}
+| '?7 | U0 | {bb0[4..=23]}
+| '?8 | U0 | {bb0[5..=23]}
+| '?9 | U0 | {bb0[5..=23]}
+| '?10 | U0 | {bb0[5..=23]}
+| '?11 | U0 | {bb0[4..=23]}
+| '?12 | U0 | {bb0[10..=23]}
+| '?13 | U0 | {bb0[5..=23]}
+| '?14 | U0 | {bb0[5..=23]}
+| '?15 | U0 | {}
+| '?16 | U0 | {bb0[3..=23]}
+| '?17 | U0 | {bb0[5..=23]}
+| '?18 | U0 | {bb0[5..=23]}
+| '?19 | U0 | {bb0[5..=23]}
+| '?20 | U0 | {bb0[5..=23]}
+|
+| Inference Constraints
+| '?0 live at {bb0[0..=29]}
+| '?1 live at {bb0[0..=29]}
+| '?5 live at {bb0[2]}
+| '?6 live at {bb0[3]}
+| '?7 live at {bb0[4]}
+| '?8 live at {bb0[16]}
+| '?9 live at {bb0[17]}
+| '?10 live at {bb0[5..=9]}
+| '?11 live at {bb0[4]}
+| '?12 live at {bb0[10..=23]}
+| '?13 live at {bb0[18]}
+| '?14 live at {bb0[17]}
+| '?16 live at {bb0[3]}
+| '?2: '?4 due to Boring at Single(bb0[2]) (main.rs:13:23: 13:26 (#0)
+| '?4: '?5 due to Boring at Single(bb0[2]) (main.rs:13:23: 13:26 (#0)
+| '?5: '?4 due to Boring at Single(bb0[2]) (main.rs:13:23: 13:26 (#0)
+| '?5: '?16 due to Boring at Single(bb0[2]) (main.rs:13:23: 13:26 (#0)
+| '?6: '?11 due to Boring at Single(bb0[3]) (main.rs:13:23: 13:26 (#0)
+| '?7: '?10 due to Assignment at Single(bb0[4]) (main.rs:13:23: 13:26 (#0)
+| '?8: '?14 due to Boring at Single(bb0[16]) (main.rs:16:9: 16:11 (#0)
+| '?9: '?13 due to Boring at Single(bb0[17]) (main.rs:16:9: 16:11 (#0)
+| '?10: '?12 due to Assignment at Single(bb0[9]) (main.rs:14:13: 14:14 (#0)
+| '?10: '?17 due to TypeAnnotation at All(main.rs:13:16: 13:20) (main.rs:13:16: 13:20 (#0)
+| '?10: '?18 due to TypeAnnotation at All(main.rs:13:16: 13:20) (main.rs:13:16: 13:20 (#0)
+| '?11: '?7 due to Boring at Single(bb0[4]) (main.rs:13:23: 13:26 (#0)
+| '?12: '?15 due to Boring at Single(bb0[23]) (main.rs:18:5: 18:6 (#0)
+| '?13: '?10 due to Assignment at Single(bb0[18]) (main.rs:16:5: 16:11 (#0)
+| '?14: '?9 due to Boring at Single(bb0[17]) (main.rs:16:9: 16:11 (#0)
+| '?16: '?6 due to Boring at Single(bb0[3]) (main.rs:13:23: 13:26 (#0)
+| '?17: '?10 due to TypeAnnotation at All(main.rs:13:16: 13:20) (main.rs:13:16: 13:20 (#0)
+| '?17: '?19 due to BoringNoLocation at All(main.rs:13:16: 13:20) (main.rs:13:16: 13:20 (#0)
+| '?18: '?10 due to TypeAnnotation at All(main.rs:13:16: 13:20) (main.rs:13:16: 13:20 (#0)
+| '?18: '?20 due to BoringNoLocation at All(main.rs:13:16: 13:20) (main.rs:13:16: 13:20 (#0)
+| '?19: '?17 due to BoringNoLocation at All(main.rs:13:16: 13:20) (main.rs:13:16: 13:20 (#0)
+| '?20: '?18 due to BoringNoLocation at All(main.rs:13:16: 13:20) (main.rs:13:16: 13:20 (#0)
+|
+| User Type Annotations
+| 0: user_ty: Canonical { value: Ty(&u32), max_universe: U0, variables: [CanonicalVarInfo { kind: Region(U0) }] }, span: main.rs:13:16: 13:20, inferred_ty: &u32
+| 1: user_ty: Canonical { value: Ty(&u32), max_universe: U0, variables: [CanonicalVarInfo { kind: Region(U0) }] }, span: main.rs:13:16: 13:20, inferred_ty: &u32
+|
+fn sara2() -> () {
+    let mut _0: ();
+    let mut _1: &u32 as UserTypeProjection { base: UserType(0), projs: [] };
+    let _2: &u32;
+    let _3: u32;
+    let mut _6: &u32;
+    let _7: &u32;
+    let _8: &u32;
+    let mut _9: &u32;
+    scope 1 {
+        debug x => _1;
+        let _4: &u32;
+        scope 2 {
+            debug y => _4;
+            let mut _5: u32;
+            scope 3 {
+                debug z => _5;
+            }
+        }
+    }
+
+    bb0: {
+        StorageLive(_1);
+        StorageLive(_2);
+        _9 = const _;
+        _2 = &(*_9);
+        _1 = &(*_2);
+        FakeRead(ForLet(None), _1);
+        AscribeUserType(_1, o, UserTypeProjection { base: UserType(1), projs: [] });
+        StorageDead(_2);
+        StorageLive(_4);
+        _4 = _1;
+        FakeRead(ForLet(None), _4);
+        StorageLive(_5);
+        _5 = const 44_u32;
+        FakeRead(ForLet(None), _5);
+        StorageLive(_6);
+        StorageLive(_7);
+        _7 = &_5;
+        _6 = &(*_7);
+        _1 = move _6;
+        StorageDead(_6);
+        StorageDead(_7);
+        _5 = const 1_u32;
+        StorageLive(_8);
+        _8 = _4;
+        StorageDead(_8);
+        _0 = const ();
+        StorageDead(_5);
+        StorageDead(_4);
+        StorageDead(_1);
+        return;
+    }
+}
