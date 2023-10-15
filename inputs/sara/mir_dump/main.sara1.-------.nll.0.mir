@@ -1,0 +1,138 @@
+// MIR for `sara1` 0 nll
+
+| Free Region Mapping
+| '?0 | Global | ['?0, '?1]
+| '?1 | Local | ['?1]
+|
+| Inferred Region Values
+| '?0 | U0 | {bb0[0..=32], '?0, '?1}
+| '?1 | U0 | {bb0[0..=32], '?1}
+| '?2 | U0 | {bb0[3..=26]}
+| '?3 | U0 | {}
+| '?4 | U0 | {bb0[3..=26]}
+| '?5 | U0 | {bb0[3..=26]}
+| '?6 | U0 | {bb0[4..=26]}
+| '?7 | U0 | {bb0[5..=26]}
+| '?8 | U0 | {bb0[12..=26]}
+| '?9 | U0 | {bb0[7..=26]}
+| '?10 | U0 | {bb0[7..=26]}
+| '?11 | U0 | {bb0[7..=26]}
+| '?12 | U0 | {bb0[7..=26]}
+| '?13 | U0 | {bb0[6..=26]}
+| '?14 | U0 | {bb0[5..=26]}
+| '?15 | U0 | {bb0[13..=26]}
+| '?16 | U0 | {bb0[7..=26]}
+| '?17 | U0 | {bb0[7..=26]}
+| '?18 | U0 | {}
+| '?19 | U0 | {bb0[4..=26]}
+| '?20 | U0 | {bb0[7..=26]}
+| '?21 | U0 | {bb0[7..=26]}
+| '?22 | U0 | {bb0[7..=26]}
+| '?23 | U0 | {bb0[7..=26]}
+|
+| Inference Constraints
+| '?0 live at {bb0[0..=32]}
+| '?1 live at {bb0[0..=32]}
+| '?5 live at {bb0[3]}
+| '?6 live at {bb0[4]}
+| '?7 live at {bb0[5]}
+| '?8 live at {bb0[12]}
+| '?9 live at {bb0[19]}
+| '?10 live at {bb0[20]}
+| '?11 live at {bb0[21]}
+| '?12 live at {bb0[7..=21]}
+| '?13 live at {bb0[6]}
+| '?14 live at {bb0[5]}
+| '?15 live at {bb0[13..=26]}
+| '?16 live at {bb0[21]}
+| '?17 live at {bb0[20]}
+| '?19 live at {bb0[4]}
+| '?2: '?4 due to Boring at Single(bb0[3]) (main.rs:4:27: 4:30 (#0)
+| '?4: '?5 due to Boring at Single(bb0[3]) (main.rs:4:27: 4:30 (#0)
+| '?5: '?4 due to Boring at Single(bb0[3]) (main.rs:4:27: 4:30 (#0)
+| '?5: '?19 due to Boring at Single(bb0[3]) (main.rs:4:27: 4:30 (#0)
+| '?6: '?14 due to Boring at Single(bb0[4]) (main.rs:4:27: 4:30 (#0)
+| '?7: '?13 due to Boring at Single(bb0[5]) (main.rs:4:27: 4:30 (#0)
+| '?8: '?15 due to Assignment at Single(bb0[12]) (main.rs:5:13: 5:16 (#0)
+| '?9: '?17 due to Boring at Single(bb0[19]) (main.rs:7:11: 7:13 (#0)
+| '?10: '?16 due to Boring at Single(bb0[20]) (main.rs:7:11: 7:13 (#0)
+| '?11: '?12 due to Boring at Single(bb0[21]) (main.rs:7:5: 7:13 (#0)
+| '?12: '?8 due to Boring at Single(bb0[12]) (main.rs:5:13: 5:16 (#0)
+| '?12: '?11 due to Boring at Single(bb0[21]) (main.rs:7:5: 7:13 (#0)
+| '?12: '?20 due to TypeAnnotation at All(main.rs:4:16: 4:23) (main.rs:4:16: 4:23 (#0)
+| '?12: '?21 due to TypeAnnotation at All(main.rs:4:16: 4:23) (main.rs:4:16: 4:23 (#0)
+| '?13: '?12 due to Assignment at Single(bb0[6]) (main.rs:4:26: 4:32 (#0)
+| '?14: '?7 due to Boring at Single(bb0[5]) (main.rs:4:27: 4:30 (#0)
+| '?15: '?18 due to Boring at Single(bb0[26]) (main.rs:9:5: 9:6 (#0)
+| '?16: '?11 due to Assignment at Single(bb0[21]) (main.rs:7:5: 7:13 (#0)
+| '?17: '?10 due to Boring at Single(bb0[20]) (main.rs:7:11: 7:13 (#0)
+| '?19: '?6 due to Boring at Single(bb0[4]) (main.rs:4:27: 4:30 (#0)
+| '?20: '?12 due to TypeAnnotation at All(main.rs:4:16: 4:23) (main.rs:4:16: 4:23 (#0)
+| '?20: '?22 due to BoringNoLocation at All(main.rs:4:16: 4:23) (main.rs:4:16: 4:23 (#0)
+| '?21: '?12 due to TypeAnnotation at All(main.rs:4:16: 4:23) (main.rs:4:16: 4:23 (#0)
+| '?21: '?23 due to BoringNoLocation at All(main.rs:4:16: 4:23) (main.rs:4:16: 4:23 (#0)
+| '?22: '?20 due to BoringNoLocation at All(main.rs:4:16: 4:23) (main.rs:4:16: 4:23 (#0)
+| '?23: '?21 due to BoringNoLocation at All(main.rs:4:16: 4:23) (main.rs:4:16: 4:23 (#0)
+|
+| User Type Annotations
+| 0: user_ty: Canonical { value: Ty((&u32,)), max_universe: U0, variables: [CanonicalVarInfo { kind: Region(U0) }] }, span: main.rs:4:16: 4:23, inferred_ty: (&u32,)
+| 1: user_ty: Canonical { value: Ty((&u32,)), max_universe: U0, variables: [CanonicalVarInfo { kind: Region(U0) }] }, span: main.rs:4:16: 4:23, inferred_ty: (&u32,)
+|
+fn sara1() -> () {
+    let mut _0: ();
+    let mut _1: (&u32,) as UserTypeProjection { base: UserType(0), projs: [] };
+    let mut _2: &u32;
+    let _3: &u32;
+    let _4: u32;
+    let mut _7: &u32;
+    let _8: &u32;
+    let _9: &u32;
+    let mut _10: &u32;
+    scope 1 {
+        debug x => _1;
+        let _5: &u32;
+        scope 2 {
+            debug y => _5;
+            let mut _6: u32;
+            scope 3 {
+                debug z => _6;
+            }
+        }
+    }
+
+    bb0: {
+        StorageLive(_1);
+        StorageLive(_2);
+        StorageLive(_3);
+        _10 = const _;
+        _3 = &(*_10);
+        _2 = &(*_3);
+        _1 = (move _2,);
+        StorageDead(_2);
+        FakeRead(ForLet(None), _1);
+        AscribeUserType(_1, o, UserTypeProjection { base: UserType(1), projs: [] });
+        StorageDead(_3);
+        StorageLive(_5);
+        _5 = (_1.0: &u32);
+        FakeRead(ForLet(None), _5);
+        StorageLive(_6);
+        _6 = const 44_u32;
+        FakeRead(ForLet(None), _6);
+        StorageLive(_7);
+        StorageLive(_8);
+        _8 = &_6;
+        _7 = &(*_8);
+        (_1.0: &u32) = move _7;
+        StorageDead(_7);
+        StorageDead(_8);
+        _6 = const 1_u32;
+        StorageLive(_9);
+        _9 = _5;
+        StorageDead(_9);
+        _0 = const ();
+        StorageDead(_6);
+        StorageDead(_5);
+        StorageDead(_1);
+        return;
+    }
+}

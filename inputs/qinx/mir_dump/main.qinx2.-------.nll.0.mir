@@ -1,0 +1,189 @@
+// MIR for `qinx2` 0 nll
+
+| Free Region Mapping
+| '?0 | Global | ['?0, '?1]
+| '?1 | Local | ['?1]
+|
+| Inferred Region Values
+| '?0 | U0 | {bb0[0..=14], bb1[0..=11], bb2[0..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=10], bb7[0], '?0, '?1}
+| '?1 | U0 | {bb0[0..=14], bb1[0..=11], bb2[0..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=10], bb7[0], '?1}
+| '?2 | U0 | {bb0[8..=14], bb1[0..=11], bb2[5..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?3 | U0 | {bb0[9..=14], bb1[0..=11], bb2[5..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?4 | U0 | {bb1[3..=6]}
+| '?5 | U0 | {bb1[4..=6]}
+| '?6 | U0 | {bb0[10..=14], bb1[0..=11], bb2[2..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?7 | U0 | {bb0[10..=14], bb1[0..=11], bb2[3..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?8 | U0 | {bb0[10..=14], bb1[0..=11], bb2[5..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?9 | U0 | {bb0[9..=14], bb1[0..=11], bb2[5..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?10 | U0 | {bb1[5..=6]}
+| '?11 | U0 | {bb1[4..=6]}
+| '?12 | U0 | {bb0[10..=14], bb1[0..=11], bb2[4..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?13 | U0 | {bb0[10..=14], bb1[0..=11], bb2[3..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?14 | U0 | {}
+| '?15 | U0 | {bb0[10..=14], bb1[0..=11], bb2[5..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?16 | U0 | {bb0[10..=14], bb1[0..=11], bb2[5..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?17 | U0 | {bb1[5..=6]}
+| '?18 | U0 | {bb1[5..=6]}
+| '?19 | U0 | {bb0[10..=14], bb1[0..=11], bb2[5..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?20 | U0 | {bb0[10..=14], bb1[0..=11], bb2[5..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?21 | U0 | {bb1[5..=6]}
+| '?22 | U0 | {bb1[5..=6]}
+|
+| Inference Constraints
+| '?0 live at {bb0[0..=14], bb1[0..=11], bb2[0..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=10], bb7[0]}
+| '?1 live at {bb0[0..=14], bb1[0..=11], bb2[0..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=10], bb7[0]}
+| '?2 live at {bb0[8]}
+| '?3 live at {bb0[9]}
+| '?4 live at {bb1[3]}
+| '?5 live at {bb1[4]}
+| '?6 live at {bb2[2]}
+| '?7 live at {bb2[3]}
+| '?8 live at {bb0[10..=14], bb1[0..=11], bb2[5..=8], bb3[0..=2], bb4[0..=1], bb5[0..=2], bb6[0..=3]}
+| '?9 live at {bb0[9]}
+| '?10 live at {bb1[5..=6]}
+| '?11 live at {bb1[4]}
+| '?12 live at {bb2[4]}
+| '?13 live at {bb2[3]}
+| '?2: '?9 due to Boring at Single(bb0[8]) (main.rs:21:19: 21:21 (#0)
+| '?3: '?8 due to Assignment at Single(bb0[9]) (main.rs:21:19: 21:21 (#0)
+| '?4: '?11 due to Boring at Single(bb1[3]) (main.rs:23:19: 23:21 (#0)
+| '?5: '?10 due to Assignment at Single(bb1[4]) (main.rs:23:19: 23:21 (#0)
+| '?6: '?13 due to Boring at Single(bb2[2]) (main.rs:25:9: 25:11 (#0)
+| '?7: '?12 due to Boring at Single(bb2[3]) (main.rs:25:9: 25:11 (#0)
+| '?8: '?14 due to Boring at Single(bb6[3]) (main.rs:30:5: 30:6 (#0)
+| '?8: '?15 due to TypeAnnotation at All(main.rs:21:12: 21:16) (main.rs:21:12: 21:16 (#0)
+| '?8: '?16 due to TypeAnnotation at All(main.rs:21:12: 21:16) (main.rs:21:12: 21:16 (#0)
+| '?9: '?3 due to Boring at Single(bb0[9]) (main.rs:21:19: 21:21 (#0)
+| '?10: '?17 due to TypeAnnotation at All(main.rs:23:12: 23:16) (main.rs:23:12: 23:16 (#0)
+| '?10: '?18 due to TypeAnnotation at All(main.rs:23:12: 23:16) (main.rs:23:12: 23:16 (#0)
+| '?11: '?5 due to Boring at Single(bb1[4]) (main.rs:23:19: 23:21 (#0)
+| '?12: '?8 due to Assignment at Single(bb2[4]) (main.rs:25:5: 25:11 (#0)
+| '?13: '?7 due to Boring at Single(bb2[3]) (main.rs:25:9: 25:11 (#0)
+| '?15: '?8 due to TypeAnnotation at All(main.rs:21:12: 21:16) (main.rs:21:12: 21:16 (#0)
+| '?15: '?19 due to BoringNoLocation at All(main.rs:21:12: 21:16) (main.rs:21:12: 21:16 (#0)
+| '?16: '?8 due to TypeAnnotation at All(main.rs:21:12: 21:16) (main.rs:21:12: 21:16 (#0)
+| '?16: '?20 due to BoringNoLocation at All(main.rs:21:12: 21:16) (main.rs:21:12: 21:16 (#0)
+| '?17: '?10 due to TypeAnnotation at All(main.rs:23:12: 23:16) (main.rs:23:12: 23:16 (#0)
+| '?17: '?21 due to BoringNoLocation at All(main.rs:23:12: 23:16) (main.rs:23:12: 23:16 (#0)
+| '?18: '?10 due to TypeAnnotation at All(main.rs:23:12: 23:16) (main.rs:23:12: 23:16 (#0)
+| '?18: '?22 due to BoringNoLocation at All(main.rs:23:12: 23:16) (main.rs:23:12: 23:16 (#0)
+| '?19: '?15 due to BoringNoLocation at All(main.rs:21:12: 21:16) (main.rs:21:12: 21:16 (#0)
+| '?20: '?16 due to BoringNoLocation at All(main.rs:21:12: 21:16) (main.rs:21:12: 21:16 (#0)
+| '?21: '?17 due to BoringNoLocation at All(main.rs:23:12: 23:16) (main.rs:23:12: 23:16 (#0)
+| '?22: '?18 due to BoringNoLocation at All(main.rs:23:12: 23:16) (main.rs:23:12: 23:16 (#0)
+|
+| User Type Annotations
+| 0: user_ty: Canonical { value: Ty(&u32), max_universe: U0, variables: [CanonicalVarInfo { kind: Region(U0) }] }, span: main.rs:21:12: 21:16, inferred_ty: &u32
+| 1: user_ty: Canonical { value: Ty(&u32), max_universe: U0, variables: [CanonicalVarInfo { kind: Region(U0) }] }, span: main.rs:21:12: 21:16, inferred_ty: &u32
+| 2: user_ty: Canonical { value: Ty(&u32), max_universe: U0, variables: [CanonicalVarInfo { kind: Region(U0) }] }, span: main.rs:23:12: 23:16, inferred_ty: &u32
+| 3: user_ty: Canonical { value: Ty(&u32), max_universe: U0, variables: [CanonicalVarInfo { kind: Region(U0) }] }, span: main.rs:23:12: 23:16, inferred_ty: &u32
+|
+fn qinx2() -> () {
+    let mut _0: ();
+    let mut _1: u32;
+    let _4: &u32;
+    let mut _5: (u32, bool);
+    let _7: &u32;
+    let _8: ();
+    let mut _9: bool;
+    let mut _10: &u32;
+    let _11: &u32;
+    let mut _12: (u32, bool);
+    let mut _13: (u32, bool);
+    let _14: &u32;
+    scope 1 {
+        debug x => _1;
+        let mut _2: u32;
+        scope 2 {
+            debug y => _2;
+            let mut _3: &u32 as UserTypeProjection { base: UserType(0), projs: [] };
+            scope 3 {
+                debug p => _3;
+                let mut _6: &u32 as UserTypeProjection { base: UserType(2), projs: [] };
+                scope 4 {
+                    debug q => _6;
+                }
+            }
+        }
+    }
+
+    bb0: {
+        StorageLive(_1);
+        _1 = const 22_u32;
+        FakeRead(ForLet(None), _1);
+        StorageLive(_2);
+        _2 = const 44_u32;
+        FakeRead(ForLet(None), _2);
+        StorageLive(_3);
+        StorageLive(_4);
+        _4 = &_1;
+        _3 = &(*_4);
+        FakeRead(ForLet(None), _3);
+        AscribeUserType(_3, o, UserTypeProjection { base: UserType(1), projs: [] });
+        StorageDead(_4);
+        _5 = CheckedAdd(_2, const 1_u32);
+        assert(!move (_5.1: bool), "attempt to compute `{} + {}`, which would overflow", _2, const 1_u32) -> [success: bb1, unwind: bb7];
+    }
+
+    bb1: {
+        _2 = move (_5.0: u32);
+        StorageLive(_6);
+        StorageLive(_7);
+        _7 = &_2;
+        _6 = &(*_7);
+        FakeRead(ForLet(None), _6);
+        AscribeUserType(_6, o, UserTypeProjection { base: UserType(3), projs: [] });
+        StorageDead(_7);
+        StorageLive(_8);
+        StorageLive(_9);
+        _9 = const true;
+        switchInt(move _9) -> [0: bb4, otherwise: bb2];
+    }
+
+    bb2: {
+        StorageLive(_10);
+        StorageLive(_11);
+        _11 = &_2;
+        _10 = &(*_11);
+        _3 = move _10;
+        StorageDead(_10);
+        StorageDead(_11);
+        _12 = CheckedAdd(_1, const 1_u32);
+        assert(!move (_12.1: bool), "attempt to compute `{} + {}`, which would overflow", _1, const 1_u32) -> [success: bb3, unwind: bb7];
+    }
+
+    bb3: {
+        _1 = move (_12.0: u32);
+        _8 = const ();
+        goto -> bb6;
+    }
+
+    bb4: {
+        _13 = CheckedAdd(_2, const 1_u32);
+        assert(!move (_13.1: bool), "attempt to compute `{} + {}`, which would overflow", _2, const 1_u32) -> [success: bb5, unwind: bb7];
+    }
+
+    bb5: {
+        _2 = move (_13.0: u32);
+        _8 = const ();
+        goto -> bb6;
+    }
+
+    bb6: {
+        StorageDead(_9);
+        StorageDead(_8);
+        StorageLive(_14);
+        _14 = _3;
+        StorageDead(_14);
+        _0 = const ();
+        StorageDead(_6);
+        StorageDead(_3);
+        StorageDead(_2);
+        StorageDead(_1);
+        return;
+    }
+
+    bb7 (cleanup): {
+        resume;
+    }
+}
