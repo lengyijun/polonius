@@ -496,6 +496,13 @@ fn build_outputs_by_point_for_visualization(
             1,
             intern,
         ),
+        facts_by_point(
+            output.errors.iter(),
+            |(point, loan)| (*point, loan.clone()),
+            "errors".to_string(),
+            1,
+            intern,
+        ),
     ]
 }
 
